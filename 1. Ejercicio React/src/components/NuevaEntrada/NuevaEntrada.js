@@ -20,11 +20,11 @@ const NuevoEntrada = (props) => {
     }
 
     return (
-        <form onClick={submitHandler}>
+        <form onKeyUp={submitHandler}>
             <div className='nuevoEntrada__controls'>
                 <div className='nuevoEntrada__control'>
                     <label>Number</label>
-                    <input type='number' min='0.01' step='0.01' onChange={NumberHandler} value={Number} />
+                    <input type='number' min='1' step='1' onChange={NumberHandler} value={Number} />
                 </div>
             </div>
         </form>
