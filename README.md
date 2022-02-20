@@ -1,2 +1,2 @@
-# README.md
-### En este repositorio se encuentran los ejercicios de la asignatura de Despliegue de servicios multimedia del MUITEL en la UPNA realizados por Paula Lozano.
+# README
+#### En este repositorio se encuentran los ejercicios de la asignatura de Despliegue de servicios multimedia del MUITEL en la UPNA realizados por Paula Lozano.
