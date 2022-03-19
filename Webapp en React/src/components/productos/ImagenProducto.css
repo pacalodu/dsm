@@ -1,0 +1,25 @@
+.producto-imagen {
+    display: flex;
+    flex-direction: column;
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: #4b4b4b;
+    color: white;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .producto-imagen__mes {
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  
+  .producto-imagen__ano {
+    font-size: 0.75rem;
+  }
+  
+  .producto-imagen__dia {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
