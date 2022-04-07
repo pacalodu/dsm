@@ -6,6 +6,8 @@ import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './HomeComponent';
+import Contacto from './ContactoComponent';
+import QuienesSomos from './QuienesSomosComponent';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Stack = createStackNavigator();
@@ -33,23 +35,49 @@ function HomeNavegador() {
   );
 }
 
-function DrawerNavegador() {
+function SomosNavegador() {
   return (
-    <Drawer.Navigator
-      initialRouteName="Home"
+    <Stack.Navigator
+      initialRouteName="Quienes somos"
       screenOptions={{
-        headerShown: false,
-        drawerStyle: {
-          backgroundColor: '#c2d3da',
-        },
+        headerMode: 'screen',
+        headerTintColor: '#fff',
+        headerStyle: { backgroundColor: '#015afc' },
+        headerTitleStyle: { color: '#fff' },
       }}
     >
-      <Drawer.Screen name="Home" component={HomeNavegador} />
-      <Drawer.Screen name="Calendario" component={CalendarioNavegador} />
-    </Drawer.Navigator>
+      <Stack.Screen
+        name="Quienes somos"
+        component={QuienesSomos}
+        options={{
+          title: 'Quienes somos',
+        }}
+      />
+    </Stack.Navigator>
   );
 }
 
+function ContactoNavegador() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Contacto"
+      screenOptions={{
+        headerMode: 'screen',
+        headerTintColor: '#fff',
+        headerStyle: { backgroundColor: '#015afc' },
+        headerTitleStyle: { color: '#fff' },
+      }}
+    >
+      <Stack.Screen
+        name="Contact"
+        component={Contacto}
+        options={{
+          title: 'Contacto',
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
 
 function CalendarioNavegador() {
   return (
@@ -77,6 +105,26 @@ function CalendarioNavegador() {
         }}
       />
     </Stack.Navigator>
+  );
+}
+
+function DrawerNavegador() {
+  return (
+    <Drawer.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false,
+        drawerStyle: {
+          backgroundColor: '#c2d3da',
+        },
+      }}
+    >
+      <Drawer.Screen name="Campo base" component={HomeNavegador} />
+      <Drawer.Screen name="Quiénes somos" component={SomosNavegador} />
+      <Drawer.Screen name="Calendario" component={CalendarioNavegador} />
+      <Drawer.Screen name="Contacto" component={ContactoNavegador} />
+      
+    </Drawer.Navigator>
   );
 }
 

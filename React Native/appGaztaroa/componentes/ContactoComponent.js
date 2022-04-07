@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Text, ScrollView, View } from 'react-native';
 import { Card } from 'react-native-elements';
-import { EXCURSIONES } from '../comun/excursiones';
-import { CABECERAS } from '../comun/cabeceras';
-import { ACTIVIDADES } from '../comun/actividades';
 import { contacto } from '../comun/contacto';
 
 function RenderItem(props) {
@@ -15,7 +12,6 @@ function RenderItem(props) {
                 <Card>
                     <Card.Title>{item.nombre}</Card.Title>
                     <Card.Divider/>
-                    <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
                     <Text style={{margin: 20}}>
                         {item.descripcion}
                     </Text>
@@ -27,14 +23,11 @@ function RenderItem(props) {
         }
 }
 
-class Home extends Component {
+class Contacto extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-          excursiones: EXCURSIONES,
-          cabeceras: CABECERAS,
-          actividades: ACTIVIDADES,
           contacto: contacto
         };
     }
@@ -44,12 +37,9 @@ class Home extends Component {
         return(
             <ScrollView>
                 <RenderItem item={this.state.contacto.filter((contacto) => contacto.destacado)[0]} />
-                <RenderItem item={this.state.cabeceras.filter((cabecera) => cabecera.destacado)[0]} />
-                <RenderItem item={this.state.excursiones.filter((excursion) => excursion.destacado)[0]} />
-                <RenderItem item={this.state.actividades.filter((actividad) => actividad.destacado)[0]} />
             </ScrollView>
         );
     }
 }
 
-export default Home;
+export default Contacto;
