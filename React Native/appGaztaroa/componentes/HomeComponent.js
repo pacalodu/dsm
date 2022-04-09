@@ -4,7 +4,6 @@ import { Card } from 'react-native-elements';
 import { EXCURSIONES } from '../comun/excursiones';
 import { CABECERAS } from '../comun/cabeceras';
 import { ACTIVIDADES } from '../comun/actividades';
-import { contacto } from '../comun/contacto';
 
 function RenderItem(props) {
     
@@ -13,9 +12,11 @@ function RenderItem(props) {
         if (item != null) {
             return(
                 <Card>
-                    <Card.Title>{item.nombre}</Card.Title>
+                    
                     <Card.Divider/>
-                    <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
+                    <Card.Image source={require('./imagenes/40Años.png')}>
+                    <Card.Title style={{color: 'chocolate', fontSize: 25}}>{item.nombre}</Card.Title>
+                    </Card.Image>
                     <Text style={{margin: 20}}>
                         {item.descripcion}
                     </Text>
@@ -34,8 +35,7 @@ class Home extends Component {
         this.state = {
           excursiones: EXCURSIONES,
           cabeceras: CABECERAS,
-          actividades: ACTIVIDADES,
-          contacto: contacto
+          actividades: ACTIVIDADES
         };
     }
 
@@ -43,7 +43,6 @@ class Home extends Component {
         
         return(
             <ScrollView>
-                <RenderItem item={this.state.contacto.filter((contacto) => contacto.destacado)[0]} />
                 <RenderItem item={this.state.cabeceras.filter((cabecera) => cabecera.destacado)[0]} />
                 <RenderItem item={this.state.excursiones.filter((excursion) => excursion.destacado)[0]} />
                 <RenderItem item={this.state.actividades.filter((actividad) => actividad.destacado)[0]} />

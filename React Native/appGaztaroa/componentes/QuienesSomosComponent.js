@@ -44,16 +44,16 @@ class QuienesSomos extends Component {
                 <Card>
                     <Card.Title>Actividades y recursos</Card.Title>
                     <Card.Divider />
-                        {this.state.actividades.map((item, index) => (
-                            <ListItem
-                                key={index}>
-                                <Avatar source={require('./imagenes/40Años.png')} />
-                                <ListItem.Content>
-                                    <ListItem.Title>{item.nombre}</ListItem.Title>
-                                    <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>
-                                </ListItem.Content>
-                            </ListItem>
-                        ))}
+                    {this.state.actividades.map((item, index) => (
+                        <ListItem
+                            key={index}>
+                            <Avatar source={require('./imagenes/40Años.png')} />
+                            <ListItem.Content>
+                                <ListItem.Title>{item.nombre}</ListItem.Title>
+                                <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>
+                            </ListItem.Content>
+                        </ListItem>
+                    ))}
                 </Card>
             </ScrollView>
         );
