@@ -3,8 +3,8 @@ import { Text, ScrollView, View } from 'react-native';
 import { Card } from 'react-native-elements';
 import { somos } from '../comun/somos';
 import { ACTIVIDADES } from '../comun/actividades';
-import { SafeAreaView, FlatList } from 'react-native';
 import { ListItem, Avatar } from 'react-native-elements';
+import { baseUrl } from '../comun/comun';
 
 function RenderItem(props) {
 
@@ -47,7 +47,7 @@ class QuienesSomos extends Component {
                     {this.state.actividades.map((item, index) => (
                         <ListItem
                             key={index}>
-                            <Avatar source={require('./imagenes/40Años.png')} />
+                            <Avatar source={{uri: baseUrl + item.imagen}} />
                             <ListItem.Content>
                                 <ListItem.Title>{item.nombre}</ListItem.Title>
                                 <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>

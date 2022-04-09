@@ -4,6 +4,7 @@ import { Text, View, ScrollView, FlatList } from 'react-native';
 import { COMENTARIOS } from '../comun/comentarios';
 import { Card, Icon } from 'react-native-elements';
 import { ListItem } from 'react-native-elements';
+import { baseUrl } from '../comun/comun';
 
 function RenderComentario(props) {
 
@@ -45,9 +46,10 @@ function RenderExcursion(props) {
   if (excursion != null) {
     return (
       <Card>
-        <Card.Title>{excursion.nombre}</Card.Title>
         <Card.Divider />
-        <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
+        <Card.Image source={{uri: baseUrl + excursion.imagen}}>
+        <Card.Title style={{color: 'white', fontSize: 35}}>{excursion.nombre}</Card.Title>
+        </Card.Image>
         <Text style={{ margin: 20 }}>
           {excursion.descripcion}
         </Text>
