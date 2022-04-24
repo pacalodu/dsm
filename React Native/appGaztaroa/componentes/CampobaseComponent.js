@@ -12,6 +12,24 @@ import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '
 import { Icon } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colorGaztaroaClaro } from '../comun/comun';
+import { connect } from 'react-redux';
+import { fetchExcursiones, fetchComentarios, fetchCabeceras, fetchActividades } from '../redux/ActionCreators';
+
+const mapStateToProps = state => {
+  return {
+    excursiones: state.excursiones,
+    comentarios: state.comentarios,
+    cabeceras: state.cabeceras,
+    actividades: state.actividades
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  fetchExcursiones: () => dispatch(fetchExcursiones()),
+  fetchComentarios: () => dispatch(fetchComentarios()),
+  fetchCabeceras: () => dispatch(fetchCabeceras()),
+  fetchActividades: () => dispatch(fetchActividades()),
+})
 
 function CustomDrawerContent(props) {
   return (
@@ -223,6 +241,12 @@ const styles = StyleSheet.create({
 });
 
 class Campobase extends Component {
+  componentDidMount() {
+    this.props.fetchExcursiones();
+    this.props.fetchComentarios();
+    this.props.fetchCabeceras();
+    this.props.fetchActividades();
+  }
 
   render() {
 
@@ -237,4 +261,4 @@ class Campobase extends Component {
   }
 }
 
-export default Campobase;
+export default connect(mapStateToProps, mapDispatchToProps)(Campobase);
